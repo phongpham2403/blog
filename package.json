@@ -41,7 +41,7 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.3.3",
     "mongoose": "^6.0.5"
-  },
+  }, 
   "devDependencies": {
     "husky": "^7.0.2",
     "lint-staged": "^11.1.2",
