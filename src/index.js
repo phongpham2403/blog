@@ -30,7 +30,7 @@ app.engine(
     }),
 );
 
-app.set               (
+app.set                        (
     'view engine',
 
     'hbs',
