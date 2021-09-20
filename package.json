@@ -26,22 +26,20 @@
     "url": "https://github.com/phongpham2403/nodejs_blog/issues"
   },
   "homepage": "https://github.com/phongpham2403/nodejs_blog#readme",
-  
   "lint-staged": {
     "src**/*.{js,json,scss}": "prettier --single-quote --trailing-comma  all --tab-width 4 --write"
   },
-
   "husky": {
     "hook": {
       "pre-commit": "lint-staged"
     }
   },
-  
   "dependencies": {
     "express": "^4.17.1",
     "express-handlebars": "^5.3.3",
-    "mongoose": "^6.0.5"
-  }, 
+    "mongoose": "^6.0.5",
+    "mongoose-slug-generator": "^1.0.4"
+  },
   "devDependencies": {
     "husky": "^7.0.2",
     "lint-staged": "^11.1.2",

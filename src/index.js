@@ -23,27 +23,22 @@ app.use(
 app.use(morgan('combined'));
 
 // Teamplate engine
-app.engine(
-    'hbs',
+app.engine('hbs',
     handlebars({
         extname: '.hbs',
+        helpers: {
+            sum: (a, b) => a + b,
+        },
     }),
 );
 
-app.set(
-    'view engine',
-
-    'hbs',
-);
-app.set(
-    'views',
-
-    path.join(__dirname, 'resources\\views'),
+app.set('view engine','hbs');
+app.set('views',path.join(__dirname, 'resources', 'views'),
 );
 
 // Routes init
 route(app);
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+    console.log(`App listening at http://localhost:${port}`);
 });
