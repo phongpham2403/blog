@@ -3,3 +3,7 @@ h1 {
 
 .card-list {
   margin-top: 16px; }
+
+.checkbox-option {
+  width: 200px;
+  margin: 0 16px; }

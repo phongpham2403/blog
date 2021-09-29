@@ -5,10 +5,32 @@ class MeController {
 
     // [GET] /me/stored/courses
     storedCourses(req, res, next) {
-        Course.find({})
+        
+
+        let courseQuery = Course.find({})
+        
+        if (req.query.hasOwnProperty('_sort')) {
+            courseQuery = courseQuery.sort({
+                [req.query.column]: req.query.type
+            })
+        }
+
+        Promise.all([courseQuery, Course.countDocumentsDeleted()])
+            .then(([courses, deletedCount]) => {
+                courses = mutipleMongooseToObject(courses)
+                res.render('me/stored-courses', { 
+                    deletedCount,
+                    courses 
+                })
+            })
+            .catch(next)
+    }
+
+    trashCourses(req, res, next) {
+        Course.findDeleted({})
             .then(courses => {
                 courses = mutipleMongooseToObject(courses)
-                res.render('me/stored-courses', { courses })
+                res.render('me/trash-courses', { courses })
             })
             .catch(next)
     }
